@@ -1,1 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+        integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="style.css">
+    <script defer src="./index.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <nav>
+        <div class="browser-history-nav">
+            <i class="fa-solid fa-chevron-left"></i>
+            <i class="fa-solid fa-chevron-right"></i>
+        </div>
+        <div class="nav-items">
+            <form class="" data-value="all">
+                <div class="custom-drop-down">
+                    <div class="option-display">All<i class="fa-solid fa-chevron-down"></i></div>
+                    <div data-value="All" class="option">All</div>
+                    <div data-value="Artist" class="option">Artist</div>
+                    <div data-value="Genre" class="option">Genre</div>
+                    <div data-value="Playlist" class="option">Playlist</div>
+                </div>
+                <input type="text" placeholder="What's you wish ?">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </form>
+            <!-- <div class="profile">
+                <img src="" alt="">
+            </div> -->
+        </div>
+    </nav>
+    <div class="sidebar">
+        <div id="logo">
+            <img src="./images/logo idea 4 chordy.svg" alt="">
+        </div>
+
+        <div class="sidebar-list-items">
+            <div data-link="home-page" id="home" class="active">
+                <i class="fa-solid fa-house"></i>
+                <p>Home</p>
+            </div>
+            <div data-link="search-page" id="search">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <p>Search</p>
+            </div>
+            <!-- <div data-link id="recently-played">
+                <i class="fa-solid fa-compact-disc"></i>
+                <p>Recently played</p>
+            </div> -->
+            <div data-link="playlist-page" id="playlist">
+                <i class="fa-solid fa-music"></i>
+                <p>My playlists</p>
+            </div>
+        </div>
+        <div class="next-in-queue">
+
+        </div>
+    </div>
+    <main class="custom-scroll">
+        <div class="div-page" id="home-page">
+            <section id="topTracks">
+                <h1 class="section-title">Top Tracks</h1>
+                <div class="topTracks-list custom-scroll">
+                    <div class="load"></div>
+
+                </div>
+            </section>
+            <section id="topArtists">
+                <h1 class="section-title">Top Artists</h1>
+                <div class="topArtists-list custom-scroll">
+                    <div class="load"></div>
+
+                </div>
+
+            </section>
+            <section id="topPlaylist">
+                <h1 class="section-title">Top playlist</h1>
+                <div class="topPlaylist-list custom-scroll">
+                    <div class="load"></div>
+
+                </div>
+
+            </section>
+        </div>
+        <div class="hide-page div-page" id="search-page">
+            <div class="search-result">
+                <h1>Search results</h1>
+                <div class="search-results-container custom-scroll">
+                    <p class="noResult">No search result yet😉...</p>
+                </div>
+                <h1>Recently played</h1>
+                <div class="recentlyPlayed-container custom-scroll">
+                    <p class="noRecent">Nothing recently played yet🎵...</p>
+                </div>
+            </div>
+        </div>
+        <div class="hide-page div-page" id="playlist-page">
+            <h1>Your favorites 🍀</h1>
+            <div class="favorites-container"></div>
+        </div>
+    </main>
+    <div class="audio-player">
+        <div class="music-info">
+            <img src="./images/default_pic.png" alt="">
+            <div class="music-text">
+                <p class="track-text">Not playing</p>
+                <p class="album-text">please select a song</p>
+            </div>
+        </div>
+        <div class="audio-controls">
+            <i id="audio-move-backward" class="fa-solid fa-arrow-rotate-left"></i>
+            <i id="audio-previous-song" class="fa-solid fa-backward-step"></i>
+            <i data-action="play" id="audio-play" class="fa-regular fa-circle-play"></i>
+            <i data-action="pause" id="audio-pause" class="fa-regular fa-circle-pause hide-audio-control"></i>
+            <i id="audio-next-song" class="fa-solid fa-forward-step"></i>
+            <i id="audio-move-forward" class="fa-solid fa-arrow-rotate-right"></i>
+        </div>
+        <div id="audio-player-container">
+            <audio preload="metadata" id="audio-player" src="">
+            </audio>
+            <div class="seekable">
+                <span id="audio-duration-start">00 : 00</span>
+                <input min="0" max="100" value="0" type="range" id="audio-seekable-slider">
+                <span id="audio-duration-end">00 : 00</span>
+            </div>
+            <div class="volume-slider">
+                <i class="fa-solid fa-volume-low"></i>
+                <input min="0" max="100" value="100" type="range" id="audio-volume-slider">
+            </div>
+        </div>
+    </div>
+    <div class="songs-queue">
+        <div class="songs-queue-toggler">
+            <p>Queue</p>
+            <div class="options">
+                <i class="fa-solid fa-shuffle"></i>
+                <i class="fa-solid fa-trash"></i>
+            </div>
+        </div>
+        <p class="currently-playing">Currently playing</p>
+        <div class="currently-playing-container "></div>
+        <p class="next-playing">Next</p>
+        <div class="next-playing-container"></div>
+    </div>
+</body>
+
+</html>
